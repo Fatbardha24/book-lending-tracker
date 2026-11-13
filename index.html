@@ -1,1 +1,225 @@
-<!-- Initial HTML file -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Lending Tracker</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Book Lending Tracker</h1>
+            <p>Manage and track your borrowed books easily.</p>
+        </header>
+
+        <section class="card">
+            <h2>Add New Book Loan</h2>
+
+            <form id="bookForm">
+
+                <div class="form-group">
+                    <label for="title">Book Title</label>
+                    <input type="text" id="title"
+                           placeholder="Enter book title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author"
+                           placeholder="Enter author" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="borrower">Borrower</label>
+                    <input type="text" id="borrower"
+                           placeholder="Enter borrower" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre" required>
+                        <option value="">Select Genre</option>
+                        <option>Fiction</option>
+                        <option>Science</option>
+                        <option>History</option>
+                        <option>Fantasy</option>
+                        <option>Romance</option>
+                        <option>Mystery</option>
+                        <option>Biography</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="add-btn">
+                    Add Book
+                </button>
+
+            </form>
+        </section>
+
+        <section class="summary">
+
+            <div class="summary-card">
+                <h3>Total Loans</h3>
+                <p id="totalLoans">0</p>
+            </div>
+
+            <div class="summary-card overdue-card">
+                <h3>Overdue Loans</h3>
+                <p id="overdueLoans">0</p>
+            </div>
+
+        </section>
+
+        <section class="card">
+            <h2>Book Loans</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Borrower</th>
+                            <th>Due Date</th>
+                            <th>Genre</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="bookTable">
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="./app.js"></script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Lending Tracker</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Book Lending Tracker</h1>
+            <p>Manage and track your borrowed books easily.</p>
+        </header>
+
+        <section class="card">
+            <h2>Add New Book Loan</h2>
+
+            <form id="bookForm">
+
+                <div class="form-group">
+                    <label for="title">Book Title</label>
+                    <input type="text" id="title"
+                           placeholder="Enter book title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author"
+                           placeholder="Enter author" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="borrower">Borrower</label>
+                    <input type="text" id="borrower"
+                           placeholder="Enter borrower" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre" required>
+                        <option value="">Select Genre</option>
+                        <option>Fiction</option>
+                        <option>Science</option>
+                        <option>History</option>
+                        <option>Fantasy</option>
+                        <option>Romance</option>
+                        <option>Mystery</option>
+                        <option>Biography</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="add-btn">
+                    Add Book
+                </button>
+
+            </form>
+        </section>
+
+        <section class="summary">
+
+            <div class="summary-card">
+                <h3>Total Loans</h3>
+                <p id="totalLoans">0</p>
+            </div>
+
+            <div class="summary-card overdue-card">
+                <h3>Overdue Loans</h3>
+                <p id="overdueLoans">0</p>
+            </div>
+
+        </section>
+
+        <section class="card">
+            <h2>Book Loans</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Borrower</th>
+                            <th>Due Date</th>
+                            <th>Genre</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="bookTable">
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="./app.js"></script>
+
+</body>
+</html>
+
