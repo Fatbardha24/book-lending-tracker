@@ -1,15 +1,5 @@
 
-let books = [];
-
-try {
-    books = JSON.parse(localStorage.getItem("books")) || [];
-
-    if (!Array.isArray(books)) {
-        books = [];
-    }
-} catch (error) {
-    books = [];
-}
+let books = BookLibrary.load();
 
 const form = document.getElementById("bookForm");
 const table = document.getElementById("bookTable");
@@ -40,36 +30,10 @@ form.addEventListener("submit", function(event) {
 
     books.push(book);
 
-    saveBooks();
+    BookLibrary.save(books);
     displayBooks();
     form.reset();
 });
-
-function saveBooks() {
-    localStorage.setItem("books", JSON.stringify(books));
-}
-
-function getToday() {
-    const today = new Date();
-
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
-}
-
-function getStatus(book) {
-    if (book.returned) {
-        return "Returned";
-    }
-
-    if (book.dueDate < getToday()) {
-        return "Overdue";
-    }
-
-    return "Active";
-}
 
 function displayBooks() {
     table.innerHTML = "";
@@ -89,7 +53,7 @@ function displayBooks() {
     }
 
     books.forEach(function(book) {
-        const status = getStatus(book);
+        const status = BookLibrary.status(book);
 
         if (status === "Overdue") {
             overdueCount++;
@@ -146,8 +110,11 @@ function displayBooks() {
         table.appendChild(row);
     });
 
-    document.getElementById("totalLoans").textContent = books.length;
-    document.getElementById("overdueLoans").textContent = overdueCount;
+    document.getElementById("totalLoans").textContent =
+        books.length;
+
+    document.getElementById("overdueLoans").textContent =
+        overdueCount;
 }
 
 function returnBook(id) {
@@ -157,7 +124,7 @@ function returnBook(id) {
 
     if (book) {
         book.returned = true;
-        saveBooks();
+        BookLibrary.save(books);
         displayBooks();
     }
 }
@@ -167,9 +134,8 @@ function deleteBook(id) {
         return book.id !== id;
     });
 
-    saveBooks();
+    BookLibrary.save(books);
     displayBooks();
 }
 
 displayBooks();
-
